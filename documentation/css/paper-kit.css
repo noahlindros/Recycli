@@ -1786,13 +1786,18 @@ textarea.form-control {
   color: #FFFFFF;
 }
 
-.section-brown {
+.section-brown { 
   background-color: #A59E94;
   color: #FFFFFF;
 }
 
 .section-light-blue {
   background-color: #51cbce;
+  color: #FFFFFF;
+}
+
+.section-recycli-green {
+  background-color: #b1c636;
   color: #FFFFFF;
 }
 
