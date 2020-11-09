@@ -10,11 +10,11 @@ import { AboutusComponent } from './examples/aboutus/aboutus.component';
 import { AddproductComponent } from './examples/addproduct/addproduct.component';
 import { BlogpostComponent } from './examples/blogpost/blogpost.component';
 import { BlogpostsComponent } from './examples/blogposts/blogposts.component';
-import { ContactusComponent } from './examples/contactus/contactus.component';
+import { ContactusComponent as ContactusExample } from './examples/contactus/contactus.component';
 import { DiscoverComponent } from './examples/discover/discover.component';
 import { EcommerceComponent } from './examples/ecommerce/ecommerce.component';
 import { LandingComponent } from './examples/landing/landing.component';
-import { LoginComponent } from './examples/login/login.component';
+import { LoginComponent as LoginExample } from './examples/login/login.component';
 import { ProductpageComponent } from './examples/productpage/productpage.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 //import { RegisterComponent } from './examples/register/register.component';
@@ -29,6 +29,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AboutComponent } from './pages/about/about.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ContactusComponent } from './pages/contactus/contactus.component';
+
 
 const routes: Routes =[
 
@@ -36,7 +39,8 @@ const routes: Routes =[
     { path: 'register',         component: RegisterComponent },
     { path: 'about',            component: AboutComponent },
     { path: 'dashboard',        component: DashboardComponent },
-    
+    { path: 'login',            component: LoginComponent },
+    { path: 'contactus',        component: ContactusComponent },
     
     { path: 'presentation',         component: PresentationComponent },
     { path: 'components',           component: ComponentsComponent },
@@ -46,11 +50,11 @@ const routes: Routes =[
     { path: 'examples/addproduct',  component: AddproductComponent },
     { path: 'examples/blogpost',    component: BlogpostComponent },
     { path: 'examples/blogposts',   component: BlogpostsComponent },
-    { path: 'examples/contactus',   component: ContactusComponent },
+    { path: 'examples/contactus',   component: ContactusExample },
     { path: 'examples/discover',    component: DiscoverComponent },
     { path: 'examples/ecommerce',   component: EcommerceComponent },
     { path: 'examples/landing',     component: LandingComponent },
-    { path: 'examples/login',       component: LoginComponent },
+    { path: 'examples/login',       component: LoginExample },
     { path: 'examples/productpage', component: ProductpageComponent },
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'examples/register',    component: RegisterComponent },

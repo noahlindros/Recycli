@@ -559,6 +559,35 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   border-top-color: #FFFFFF;
 }
 
+.btn-recycli {
+  background-color: #b1c636;
+  border-color: #b1c636;
+  color: #FFFFFF;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.btn-recycli:hover, .btn-recycli:focus, .btn-recycli:active, .btn-recycli.active, .show > .btn-recycli.dropdown-toggle {
+  background-color: #b1c636;
+  color: #FFFFFF;
+  border-color: #b1c636;
+}
+.btn-recycli .caret {
+  border-top-color: #FFFFFF;
+}
+.btn-recycli.btn-link {
+  color: #b1c636;
+}
+.btn-recycli.btn-link:hover, .btn-recycli.btn-link:focus, .btn-recycli.btn-link:active, .btn-recycli.btn-link.active, .open > .btn-recycli.btn-link.dropdown-toggle {
+  background-color: transparent;
+  color: #b1c636;
+}
+.btn-recycli.btn-link .caret {
+  border-top-color: #b1c636;
+}
+.btn-recycli .caret {
+  border-top-color: #FFFFFF;
+}
+
 .btn-neutral {
   background-color: #FFFFFF;
   border-color: #FFFFFF;

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-translate">
             <div class="navbar-header">
-                <a class="navbar-brand" [routerLink]="['/home']">Recycli - UF</a>
+                <a class="navbar-brand" [routerLink]="['/home']">Recycli</a>
             </div>
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
@@ -14,10 +14,10 @@
             <ul class="navbar-nav ml-auto">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="om oss.html">Om oss</a>
+                        <a class="nav-link" [routerLink]="['/about']">Om oss</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kontakta oss.html">Kontakta oss</a>
+                        <a class="nav-link" [routerLink]="['/contactus']">Kontakta oss</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="boka upphämtning.html">Boka upphämtning</a>
@@ -66,8 +66,8 @@
                     </div>
                 </div>
                 <li class="nav-item">
-                    <a class="btn btn-round btn-danger" href="https://www.creative-tim.com/product/paper-kit-2-pro-angular">
-                        <i class="nc-icon nc-cart-simple"></i> Buy now
+                    <a class="btn btn-round btn-recycli" [routerLink]="['/login']">
+                        <i class="nc-icon nc-lock-circle-open"></i> Logga in
                     </a>
                 </li>
             </ul>
