@@ -9,7 +9,20 @@ export class RegisterComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    var body = document.getElementsByTagName('body')[0];
+    body.classList.add('full-screen');
+    body.classList.add('register-page');
+    var navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.add('navbar-transparent');
+}
+ngOnDestroy(){
+    var body = document.getElementsByTagName('body')[0];
+    body.classList.remove('full-screen');
+    body.classList.remove('register-page');
+    var navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.remove('navbar-transparent');
+}
 
 }
+

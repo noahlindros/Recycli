@@ -17,7 +17,7 @@ import { LandingComponent } from './examples/landing/landing.component';
 import { LoginComponent as LoginExample } from './examples/login/login.component';
 import { ProductpageComponent } from './examples/productpage/productpage.component';
 import { ProfileComponent } from './examples/profile/profile.component';
-//import { RegisterComponent } from './examples/register/register.component';
+import { RegisterComponent as RegisterExample} from './examples/register/register.component';
 import { SearchComponent } from './examples/search/search.component';
 import { SettingsComponent } from './examples/settings/settings.component';
 import { TwitterComponent } from './examples/twitter/twitter.component';
@@ -57,7 +57,7 @@ const routes: Routes =[
     { path: 'examples/login',       component: LoginExample },
     { path: 'examples/productpage', component: ProductpageComponent },
     { path: 'examples/profile',     component: ProfileComponent },
-    { path: 'examples/register',    component: RegisterComponent },
+    { path: 'examples/register',    component: RegisterExample },
     { path: 'examples/search',      component: SearchComponent },
     { path: 'examples/settings',    component: SettingsComponent },
     { path: 'examples/twitter',     component: TwitterComponent },

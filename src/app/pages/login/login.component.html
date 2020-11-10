@@ -1,28 +1,47 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/sections/bruno-abatti.jpg');">
+    <div class="page-header" style="background-image: url('./assets/img/Recycli/jonathan-chng-OTDyDgPoJ_0-unsplash.jpg');">
         <div class="filter"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-                    <div class="card card-register">
-                        <h3 class="card-title">Welcome</h3>
+                    <div class="card card-recycli-gray">
+                        <h3 class="card-title">Välkommen</h3>
                         <form class="register-form">
                             <label>Email</label>
                             <input type="email" class="form-control no-border" placeholder="Email">
 
-                            <label>Password</label>
-                            <input type="password" class="form-control no-border" placeholder="Password">
-                            <button class="btn btn-danger btn-block btn-round" (click)="onLoginClick()">Login</button>
+                            <label>Lösenord</label>
+                            <input type="password" class="form-control no-border" placeholder="Lösenord">
+                            <button class="btn btn-recycli btn-block btn-round" (click)="onLoginClick()">Logga in</button>
                         </form>
                         <div class="forgot">
-                            <a href="javascript:void(0)" class="btn btn-link btn-danger">Forgot password?</a>
+                            <a [routerLink]="['/contactus']" class="btn btn-link btn-recycli">Glömt bort mitt lösenord?</a>
+                            <a [routerLink]="['/register']" class="btn btn-link btn-recycli">Registrera dig</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="demo-footer text-center">
-                <h6>&copy; {{data | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
+                <h6>&copy; {{data | date: 'yyyy'}}, Recycli</h6>
             </div>
         </div>
     </div>
 </div>
+
+<footer class="footer section-dark">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/home']">Recycli</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    &copy; {{data | date: 'yyyy'}},
+                    Recycli 
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
