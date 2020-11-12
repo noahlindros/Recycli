@@ -26,3 +26,14 @@ ngOnDestroy(){
 
 }
 
+function checkPass(){
+  var pass  = (<HTMLInputElement>document.getElementById("password")).value;
+  var rpass  = (<HTMLInputElement>document.getElementById("rpassword")).value;
+ if(pass != rpass){
+     (<HTMLInputElement>document.getElementById("submit")).disabled = true;
+     $('.missmatch').html("Det angivna lösenordet matchar inte");
+ }else{
+     $('.missmatch').html("");
+     (<HTMLInputElement>document.getElementById("submit")).disabled = false;
+ }
+}

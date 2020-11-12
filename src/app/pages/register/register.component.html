@@ -50,11 +50,13 @@
                                     <!-- vill inte ha pilarna i kanten av inputlådan -->
                                 <input type="number" class="form-control" placeholder="Telefonnummer">
 
-                                <input type="password" class="form-control" placeholder="Lösenord">
+                                <input type="text" class="form-control" placeholder="Adress">
 
-                                <input type="password" class="form-control" placeholder="Bekräfta lösenord">
+                                <input type="password" onkeypress="checkPass();" name="Password"  class="form-control" id="password" placeholder="Lösenord" required>
 
-                                <button class="btn btn-recycli btn-block btn-round">Registrera</button>
+                                <input type="password" onkeypress="checkPass();" name="rPassword" class="form-control" id="rpassword" placeholder="Bekräfta lösenord" required>
+
+                                <button id="submit" name="submit" class="btn btn-recycli btn-block btn-round">Registrera</button>
                             </form>
                             <div class="login">
                                 <!-- Jag vill att texten ska vara grön istället för blå på "logga in" -->
