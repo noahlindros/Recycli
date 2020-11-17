@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 //import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 //import firebase from 'firebase/app';
 
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   errorMessage: string = "";
 
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService, public router: Router) {
 
   }
 
@@ -85,13 +86,14 @@ export class RegisterComponent implements OnInit {
     this.auth.angularFireAuth.auth.createUserWithEmailAndPassword(this.signupForm.value.email, this.signupForm.value.password)
     .then((user) => {
       console.log(user);
-      this.loginFailed = true;
-      this.errorMessage = user.user.uid;
+      this.loginFailed = false;
+      this.errorMessage = null;
 
       
       this.auth.user = user;
       this.auth.isAuthenticated = true;
       this.auth.authChange.emit(true);
+      this.router.navigate(['/dashboard']);
       
     })
     .catch((error) => {
