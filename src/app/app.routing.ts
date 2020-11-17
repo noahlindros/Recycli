@@ -31,6 +31,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
+import { SignoutComponent } from './pages/signout/signout.component';
+import { AuthGuard } from './services/auth.guard';
+import { PickupComponent } from './pages/pickup/pickup.component';
 
 
 const routes: Routes =[
@@ -38,8 +41,10 @@ const routes: Routes =[
     { path: 'home',             component: HomeComponent },
     { path: 'register',         component: RegisterComponent },
     { path: 'about',            component: AboutComponent },
-    { path: 'dashboard',        component: DashboardComponent },
+    { path: 'dashboard',        component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'pickup',           component: PickupComponent, canActivate: [AuthGuard] },
     { path: 'login',            component: LoginComponent },
+    { path: 'signout',          component: SignoutComponent },
     { path: 'contactus',        component: ContactusComponent },
     
     { path: 'presentation',         component: PresentationComponent },

@@ -45,17 +45,23 @@
                                 <span>or</span>
                                 <div class="line r"></div>
                             </div>
-                            <form class="register-form">
-                                <input type="text" class="form-control" placeholder="Email">
-                                    <!-- vill inte ha pilarna i kanten av inputlådan -->
-                                <input type="number" class="form-control" placeholder="Telefonnummer">
+                            <form [formGroup]="signupForm" (ngSubmit)="onReactiveFormSubmit()">
 
-                                <input type="password" class="form-control" placeholder="Lösenord">
+                                <input formControlName="email" id="email" name="email" type="email" class="form-control" placeholder="Email">
+                                <input formControlName="password" id="password" name="password" type="password" class="form-control" placeholder="Password">
+                                <input formControlName="confirm" id="confirm" name="confirm" type="password" class="form-control" placeholder="Confirm password">
 
-                                <input type="password" class="form-control" placeholder="Bekräfta lösenord">
-
-                                <button class="btn btn-recycli btn-block btn-round">Registrera</button>
+                                <button class="btn btn-recycli btn-block btn-round" type="submit" [disabled]="!signupForm.valid">Registrera</button>
                             </form>
+
+                          
+                            <br>
+                            <div *ngIf="loginFailed" class="alert alert-danger fade show" role="alert">
+                              <strong>Sign up failed</strong><br>
+                              {{errorMessage}}
+                            </div>
+                
+
                             <div class="login">
                                 <!-- Jag vill att texten ska vara grön istället för blå på "logga in" -->
                                 <p>Har du redan ett konto? <a [routerLink]="['/login']" class="btn-link btn-recycli">Logga in</a>.</p>

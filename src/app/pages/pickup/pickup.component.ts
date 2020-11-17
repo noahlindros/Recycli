@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-pickup',
+  templateUrl: './pickup.component.html',
+  styleUrls: ['./pickup.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class PickupComponent implements OnInit {
 
   constructor() { }
-
 
   ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
@@ -30,4 +29,5 @@ export class DashboardComponent implements OnInit {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
   }
+
 }

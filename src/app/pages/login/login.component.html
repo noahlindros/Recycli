@@ -6,14 +6,21 @@
                 <div class="col-md-4 col-sm-6 ml-auto mr-auto">
                     <div class="card card-recycli-gray">
                         <h3 class="card-title">Välkommen</h3>
-                        <form class="register-form">
+                        <form class="register-form" (ngSubmit)="onSubmit(FormData)" #FormData="ngForm">
                             <label>Email</label>
-                            <input type="email" class="form-control no-border" placeholder="Email">
+                            <input id="email" name="email" type="email" class="form-control no-border" placeholder="Email" ngModel>
 
                             <label>Lösenord</label>
-                            <input type="password" class="form-control no-border" placeholder="Lösenord">
-                            <button class="btn btn-recycli btn-block btn-round" (click)="onLoginClick()">Logga in</button>
+                            <input id="password" name="password" type="password" class="form-control no-border" placeholder="Lösenord" ngModel>
+                            <button type="submit" class="btn btn-recycli btn-block btn-round">Logga in</button>
                         </form>
+                        <br>
+
+                        <div *ngIf="loginFailed" class="alert alert-danger fade show" role="alert">
+                            <strong>Sign in failed</strong><br>
+                            {{errorMessage}}
+                        </div>
+
                         <div class="forgot">
                             <a [routerLink]="['/contactus']" class="btn btn-link btn-recycli">Glömt bort mitt lösenord?</a>
                             <a [routerLink]="['/register']" class="btn btn-link btn-recycli">Registrera dig</a>

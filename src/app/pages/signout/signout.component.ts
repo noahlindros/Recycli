@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'app/services/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-signout',
+  templateUrl: './signout.component.html',
+  styleUrls: ['./signout.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class SignoutComponent implements OnInit {
 
-  constructor() { }
 
+  data: Date = new Date();
+
+  
+  
+  
+
+
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
@@ -21,6 +30,9 @@ export class DashboardComponent implements OnInit {
     }
 
 
+    this.auth.isAuthenticated = false;
+    this.auth.user = null;
+    this.auth.authChange.emit(false);
     
   }
   ngOnDestroy() {
@@ -30,4 +42,6 @@ export class DashboardComponent implements OnInit {
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
   }
+
+
 }
