@@ -75,7 +75,7 @@
                 </li>
                 <li *ngIf="isAuthenticated" class="nav-item">
                     <a class="btn btn-round btn-recycli" [routerLink]="['/signout']">
-                        <i class="nc-icon nc-lock-circle-open"></i> Logga ut
+                        <i class="nc-icon nc-lock-circle-open"></i> Logga ut {{auth.user.email}}
                     </a>
                 </li>
             </ul>

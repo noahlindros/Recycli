@@ -28,6 +28,25 @@ export class NavbarComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
         this.isAuthenticated = this.auth.isAuthenticated;
+
+
+        this.auth.angularFireAuth.user.subscribe((user) =>{
+
+            if (user){
+                this.auth.isAuthenticated = true;
+                this.auth.user = user;
+                this.auth.authChange.emit(true);
+            }
+            else{
+                this.auth.isAuthenticated = false;
+                this.auth.user = null;
+                this.auth.authChange.emit(false);
+
+                
+            }            
+
+        });
+
     }
     sidebarOpen() {
         const toggleButton = this.toggleButton;

@@ -90,7 +90,7 @@ export class RegisterComponent implements OnInit {
       this.errorMessage = null;
 
       
-      this.auth.user = user;
+      this.auth.user = user.user;
       this.auth.isAuthenticated = true;
       this.auth.authChange.emit(true);
       this.router.navigate(['/dashboard']);

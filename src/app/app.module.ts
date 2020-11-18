@@ -22,6 +22,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SignoutComponent } from './pages/signout/signout.component';
 import { PickupComponent } from './pages/pickup/pickup.component';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { PickupComponent } from './pages/pickup/pickup.component';
             appId: "1:248278027791:web:818c0c3d32410135d69d7a",
             measurementId: "G-3CPNF4KYZB"
         }),
+        AngularFireDatabaseModule,
         BrowserAnimationsModule,
         NgbModule,
         FormsModule,

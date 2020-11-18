@@ -47,15 +47,18 @@ export class LoginComponent implements OnInit {
     this.auth.angularFireAuth.auth.signInWithEmailAndPassword(FormData.value.email, FormData.value.password)
       .then((user) => {
 
+  
+        
         this.auth.isAuthenticated = true;
-        this.auth.user = user;
+        this.auth.user = user.user;
         this.auth.authChange.emit(true);
         this.router.navigate(['/dashboard']);
+
+
       }).catch((error) => {        
         this.errorMessage = error.code + " " + error.message;
         this.loginFailed = true;
         
-  
         this.auth.isAuthenticated = false;
         this.auth.user = null;
         this.auth.authChange.emit(false);

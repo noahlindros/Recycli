@@ -12,7 +12,11 @@ export class AuthService {
   private static LOCAL_STORAGE_USERNAME = "LOCAL_STORAGE_DEECIDO_USERNAME";
   public isAuthenticated: boolean = false;
   
-  public user: firebase.auth.UserCredential;
+  public user: firebase.User;
 
   constructor(public angularFireAuth: AngularFireAuth) { }
+
+
+ 
+
 }

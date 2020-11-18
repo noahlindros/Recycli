@@ -33,6 +33,7 @@ export class SignoutComponent implements OnInit {
     this.auth.isAuthenticated = false;
     this.auth.user = null;
     this.auth.authChange.emit(false);
+    this.auth.angularFireAuth.auth.signOut();
     
   }
   ngOnDestroy() {
