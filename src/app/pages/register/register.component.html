@@ -35,21 +35,17 @@
                     <div class="col-lg-6 col-md-6 col-sm-5 col-12 mr-auto">
                         <div class="card card-register">
                             <h3 class="card-title text-center">Registrera dig</h3>
-                            <div class="social">
-                                <button href="javascript:void(0)" class="btn btn-just-icon btn-facebook mr-1"><i class="fa fa-facebook"></i></button>
-                                <button href="javascript:void(0)" class="btn btn-just-icon btn-google mr-1"><i class="fa fa-google"></i></button>
-                            </div>
-
+                            <h6 class="card-title text-center">Ditt lösenord måste innehålla en siffra, en stor bokstav och ett specialtecken</h6>
                             <div class="division">
                                 <div class="line l"></div>
-                                <span>or</span>
+                                <span></span>
                                 <div class="line r"></div>
                             </div>
                             <form [formGroup]="signupForm" (ngSubmit)="onReactiveFormSubmit()">
 
                                 <input formControlName="email" id="email" name="email" type="email" class="form-control" placeholder="Email">
-                                <input formControlName="password" id="password" name="password" type="password" class="form-control" placeholder="Password">
-                                <input formControlName="confirm" id="confirm" name="confirm" type="password" class="form-control" placeholder="Confirm password">
+                                <input formControlName="password" id="password" name="password" type="password" class="form-control" placeholder="Lösenord">
+                                <input formControlName="confirm" id="confirm" name="confirm" type="password" class="form-control" placeholder="Bekräfta lösenord">
 
                                 <button class="btn btn-recycli btn-block btn-round" type="submit" [disabled]="!signupForm.valid">Registrera</button>
                             </form>
@@ -57,7 +53,7 @@
                           
                             <br>
                             <div *ngIf="loginFailed" class="alert alert-danger fade show" role="alert">
-                              <strong>Sign up failed</strong><br>
+                              <strong>Registrering misslyckad</strong><br>
                               {{errorMessage}}
                             </div>
                 

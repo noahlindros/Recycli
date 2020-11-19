@@ -4,11 +4,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-
-                    <h3>You have been signed out</h3>
+                    <div class="card card-recycli-gray">
+                        <h3> </h3>
+                        <h3> </h3>
+                        <h3> </h3>
+                        <h3> </h3>
+                        <h3> </h3>
+                        <h3>Du har blivit utloggad!</h3>
+                    </div>
                 </div>
             </div>
-
+            <div class="demo-footer text-center">
+                <h6>&copy; {{data | date: 'yyyy'}}, Recycli</h6>
+            </div>
         </div>
     </div>
 </div>
@@ -18,7 +26,6 @@
         <div class="row">
             <nav class="footer-nav">
                 <ul>
-                    <li><a [routerLink]="['/home']">Recycli</a></li>
                     <li><a [routerLink]="['/home']">Recycli</a></li>
                 </ul>
             </nav>
