@@ -1,33 +1,33 @@
 <div class="wrapper">
-    <div class="page-header" style="background-image: url('./assets/img/Recycli/jonathan-chng-OTDyDgPoJ_0-unsplash.jpg');">
+    <div class="page-header" style="background-image: url('./assets/img/Recycli/pile-1868894_1920.jpg');">
         <div class="filter"></div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+                <div class="col-md-6 ml-auto mr-auto">
                     <div class="card card-recycli-gray">
-                        <h3 class="card-title">Välkommen</h3>
+                        <h3>Boka upphämtning</h3>
                         <form class="register-form" (ngSubmit)="onSubmit(FormData)" #FormData="ngForm">
                             
                             <label>Namn</label>
-                            <input id="Name" name="Name" type="Name" class="form-control no-border" placeholder="Name" [(ngModel)]="newpickup.Name">
+                            <input id="Name" name="Name" type="Name" class="form-control no-border" placeholder="Namn" [(ngModel)]="newpickup.Name">
                             
-                            <label>Adress 1</label>
-                            <input id="Address1" name="Address1" type="Address1" class="form-control no-border" placeholder="Address1" [(ngModel)]="newpickup.Address1">
+                            <label>Adress</label>
+                            <input id="Address1" name="Address1" type="Address1" class="form-control no-border" placeholder="Address" [(ngModel)]="newpickup.Address1">
                             
-                            <label>Adress 2</label>
-                            <input id="Address2" name="Address2" type="Address2" class="form-control no-border" placeholder="Address2" [(ngModel)]="newpickup.Address2">
+                            <label> </label>
+                            <input id="Address2" name="Address2" type="Address2" class="form-control no-border" placeholder="Address" [(ngModel)]="newpickup.Address2">
                             
                             <label>Postnummer</label>
-                            <input id="Zip" name="Zip" type="Zip" class="form-control no-border" placeholder="Zip" [(ngModel)]="newpickup.Zip">
+                            <input id="Zip" name="Zip" type="Zip" class="form-control no-border" placeholder="Postnummer" [(ngModel)]="newpickup.Zip">
                             
                             <label>Ort</label>
-                            <input id="City" name="City" type="City" class="form-control no-border" placeholder="City" [(ngModel)]="newpickup.City">
+                            <input id="City" name="City" type="City" class="form-control no-border" placeholder="Stad" [(ngModel)]="newpickup.City">
                             
                             <label>Telefon</label>
-                            <input id="Phone" name="Phone" type="Phone" class="form-control no-border" placeholder="Phone" [(ngModel)]="newpickup.Phone">
+                            <input id="Phone" name="Phone" type="Phone" class="form-control no-border" placeholder="Telefonnummer" [(ngModel)]="newpickup.Phone">
 
                             <label>Instruktion</label>
-                            <input id="Instruction" name="Instruction" type="Instruction" class="form-control no-border" placeholder="Instruction" [(ngModel)]="newpickup.Instruction">
+                            <input id="Instruction" name="Instruction" type="Instruction" class="form-control no-border" placeholder="Instruktioner" [(ngModel)]="newpickup.Instruction">
 
 
 
@@ -42,10 +42,6 @@
                             {{errorMessage}}
                         </div>
 
-                        <div class="forgot">
-                            <a [routerLink]="['/contactus']" class="btn btn-link btn-recycli">Glömt bort mitt lösenord?</a>
-                            <a [routerLink]="['/register']" class="btn btn-link btn-recycli">Skapa konto</a>
-                        </div>
                     </div>
                 </div>
             </div>
