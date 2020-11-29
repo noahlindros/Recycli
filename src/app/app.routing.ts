@@ -34,6 +34,7 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { SignoutComponent } from './pages/signout/signout.component';
 import { AuthGuard } from './services/auth.guard';
 import { PickupComponent } from './pages/pickup/pickup.component';
+import { AddpickupComponent } from './pages/addpickup/addpickup.component';
 
 
 const routes: Routes =[
@@ -42,6 +43,7 @@ const routes: Routes =[
     { path: 'register',         component: RegisterComponent },
     { path: 'about',            component: AboutComponent },
     { path: 'dashboard',        component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'addpickup',        component: AddpickupComponent, canActivate: [AuthGuard] },
     { path: 'pickup',           component: PickupComponent, canActivate: [AuthGuard] },
     { path: 'login',            component: LoginComponent },
     { path: 'signout',          component: SignoutComponent },

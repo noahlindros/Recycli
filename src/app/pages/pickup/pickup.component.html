@@ -3,52 +3,90 @@
         style="background-image: url('./assets/img/Recycli/jonathan-chng-OTDyDgPoJ_0-unsplash.jpg');">
         <div class="filter"></div>
 
-        <div class="container col-md-6">
-
-            <div class="row">
-                <div class="col-md-6 ml-auto mr-auto">
-                    <button class="btn btn-recycli btn-block btn-round" (click)="onCreateNew()">Skapa upphämtning</button>
+        <div class="content-center">
+            <div class="container">
+                <div class="motto">
+                    <h1 class="title">RecycliUF</h1>
+                    <h3 class="description">Hjälp oss förbättra miljön, ett steg i taget!</h3>
+                    <div class="row">
+                        <div class="col-md-6 ml-auto mr-auto">
+                            <button class="btn btn-recycli btn-block btn-round" (click)="onCreateNew()">Skapa
+                                upphämtning</button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
+        </div>
+
+        
 
 
-            <div *ngFor="let pickup of pickupList" class="card">
-                <div class="card-header">
-                    Bokad upphämtning
+    </div>
+
+
+    <div class="wrapper">
+        <div class="section landing-section">
+
+
+
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Återvinna?!?</h2>
+                        <h5>Varför är det bra att återvinna? Återvinning är ett steg i rätt riktning när det kommer till att försöka rädda vår planet genom att återanvända de förbrukningsvaror som redan finns i omloppet idag. Genom återvinning, kan vi göra nya produkter av redan använt källmaterial och på sådant sätt räddar vi planeten ett steg i taget.</h5>
+                        <br />
+                    </div>
+                </div>
+  
+
+                <div *ngFor="let pickup of pickupList" class="card">
+                    <div class="card-header">
+                        Bokad upphämtning
+
+                        <button type="button" ngbTooltip="Ta bort" class="pull-right btn btn-danger btn-link btn-sm" (click)="onRemovePickup(pickup)">
+                            <i class="fa fa-times"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="card-body card-presentation">
+                        <h5><strong>{{pickup.Name}}</strong></h5>
+                        <p class="text-style">
+                            {{pickup.Address1}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.Adress2}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.Zip}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.City}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.Phone}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.PickupDay}}
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="card-body card-presentation">
-                    <h5><strong>{{pickup.Name}}</strong></h5>
-                    <p class="text-style">
-                        {{pickup.Address1}}
-                    </p>
 
-                    <p class="text-style">
-                        {{pickup.Adress2}}
-                    </p>
-
-                    <p class="text-style">
-                        {{pickup.Zip}}
-                    </p>
-
-                    <p class="text-style">
-                        {{pickup.City}}
-                    </p>
-
-                    <p class="text-style">
-                        {{pickup.Phone}}
-                    </p>
-
-                    <p class="text-style">
-                        {{pickup.PickupDay}}
-                    </p>
-
-                </div>
             </div>
-
 
         </div>
     </div>
+
 </div>
 
 

@@ -1,0 +1,75 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/Recycli/jonathan-chng-OTDyDgPoJ_0-unsplash.jpg');">
+        <div class="filter"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+                    <div class="card card-recycli-gray">
+                        <h3 class="card-title">Välkommen</h3>
+                        <form class="register-form" (ngSubmit)="onSubmit(FormData)" #FormData="ngForm">
+                            
+                            <label>Namn</label>
+                            <input id="Name" name="Name" type="Name" class="form-control no-border" placeholder="Name" [(ngModel)]="newpickup.Name">
+                            
+                            <label>Adress 1</label>
+                            <input id="Address1" name="Address1" type="Address1" class="form-control no-border" placeholder="Address1" [(ngModel)]="newpickup.Address1">
+                            
+                            <label>Adress 2</label>
+                            <input id="Address2" name="Address2" type="Address2" class="form-control no-border" placeholder="Address2" [(ngModel)]="newpickup.Address2">
+                            
+                            <label>Postnummer</label>
+                            <input id="Zip" name="Zip" type="Zip" class="form-control no-border" placeholder="Zip" [(ngModel)]="newpickup.Zip">
+                            
+                            <label>Ort</label>
+                            <input id="City" name="City" type="City" class="form-control no-border" placeholder="City" [(ngModel)]="newpickup.City">
+                            
+                            <label>Telefon</label>
+                            <input id="Phone" name="Phone" type="Phone" class="form-control no-border" placeholder="Phone" [(ngModel)]="newpickup.Phone">
+
+                            <label>Instruktion</label>
+                            <input id="Instruction" name="Instruction" type="Instruction" class="form-control no-border" placeholder="Instruction" [(ngModel)]="newpickup.Instruction">
+
+
+
+
+                            <button type="submit" class="btn btn-recycli btn-block btn-round">Spara</button>
+
+                        </form>
+                        <br>
+
+                        <div *ngIf="loginFailed" class="alert alert-danger fade show" role="alert">
+                            <strong>Inloggning misslyckad</strong><br>
+                            {{errorMessage}}
+                        </div>
+
+                        <div class="forgot">
+                            <a [routerLink]="['/contactus']" class="btn btn-link btn-recycli">Glömt bort mitt lösenord?</a>
+                            <a [routerLink]="['/register']" class="btn btn-link btn-recycli">Skapa konto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-footer text-center">
+                <h6>&copy; {{data | date: 'yyyy'}}, Recycli</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer section-dark">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/home']">Recycli</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    &copy; {{data | date: 'yyyy'}},
+                    Recycli 
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

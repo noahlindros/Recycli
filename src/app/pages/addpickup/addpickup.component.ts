@@ -1,20 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Pickup } from 'app/model/pickup.model';
 import { AuthService } from 'app/services/auth.service';
 
-
 @Component({
-  selector: 'app-pickup',
-  templateUrl: './pickup.component.html',
-  styleUrls: ['./pickup.component.css']
+  selector: 'app-addpickup',
+  templateUrl: './addpickup.component.html',
+  styleUrls: ['./addpickup.component.css']
 })
-export class PickupComponent implements OnInit {
+export class AddpickupComponent implements OnInit {
 
-  pickupList: Pickup[]  = null;
 
-  isCreatingPickup: boolean = false;
+  data: Date = new Date();
+
+  @ViewChild('FormData') SignInForm: NgForm;
+  loginFailed: boolean = false;
+  errorMessage: string = null;
+  newpickup: Pickup = new Pickup();
+
+
   constructor(private db : AngularFireDatabase, private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
@@ -26,10 +32,6 @@ export class PickupComponent implements OnInit {
     if (navbar.classList.contains('nav-up')) {
       navbar.classList.remove('nav-up');
     }
-
-
-    this.reloadData();
-    
   }
   ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];
@@ -39,58 +41,28 @@ export class PickupComponent implements OnInit {
     navbar.classList.remove('navbar-transparent');
   }
 
-  reloadData(){
-    let subscription = this.db.list<Pickup>('pickups/' + this.auth.user.uid).valueChanges().subscribe((result) => {
-
-      console.log(result);
-      this.pickupList = result;
-      subscription.unsubscribe();
-    });
-
-
-  }
-  onRemovePickup(aPickup : Pickup){
-    console.log(aPickup);
-    this.db.object('pickups/' + this.auth.user.uid + "/" + aPickup.Key).remove()
-    .then(result =>{
-      this.reloadData();
-    })
-    .catch(error => {
-
-    });
-  }
-
-  onCreateNew(){
-
-    this.router.navigate(['/addpickup']);
-
+  onSubmit(FormData: NgForm) {
     
-  }
+    
 
-  onSaveNew(){
+    console.log(this.newpickup);
 
 
 
-    let aNewPickup = new Pickup();
-    aNewPickup.Name = "Fredrik";
-    aNewPickup.Address1 = "Sidensvansgatan 22";
-    aNewPickup.Address2 = "";
-    aNewPickup.Zip = "235 38";
-    aNewPickup.City = "VELLINGE";
-    aNewPickup.PickupDay = "Måndagar udda veckor";
-    aNewPickup.Phone = "+46 733 354302";
+
+
     
     this.db.database.ref('pickups/' + this.auth.user.uid).push()
     .then((pushref) =>{
 
       console.log(pushref);
 
-      aNewPickup.Key = pushref.key;
+      this.newpickup.Key = pushref.key;
 
-      pushref.set(aNewPickup)
+      pushref.set(this.newpickup)
       .then((saveref) =>{
         console.log(saveref);
-        this.reloadData();
+        this.router.navigate(['/pickup']);
       })
       .catch((error) =>{
   
@@ -116,5 +88,9 @@ export class PickupComponent implements OnInit {
     });
     */
 
+
+   
+
   }
+
 }

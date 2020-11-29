@@ -23,6 +23,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SignoutComponent } from './pages/signout/signout.component';
 import { PickupComponent } from './pages/pickup/pickup.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AddpickupComponent } from './pages/addpickup/addpickup.component';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
         AboutComponent,
         LoginComponent,
         ContactusComponent,        
-        SignoutComponent, PickupComponent
+        SignoutComponent, PickupComponent, AddpickupComponent
     ],
     imports: [
         AngularFireModule.initializeApp({
