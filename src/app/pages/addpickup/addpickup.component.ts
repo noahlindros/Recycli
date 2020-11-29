@@ -3,7 +3,10 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Pickup } from 'app/model/pickup.model';
+import { ScheduledPickup } from 'app/model/scheduledpickup.model';
 import { AuthService } from 'app/services/auth.service';
+import { DataService } from 'app/services/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-addpickup',
@@ -19,11 +22,19 @@ export class AddpickupComponent implements OnInit {
   loginFailed: boolean = false;
   errorMessage: string = null;
   newpickup: Pickup = new Pickup();
+  selectedScheduledPickup: ScheduledPickup;
+
+  scheduledPickupLoading: boolean = false;
+  scheduledPickupList: Observable<ScheduledPickup[]>;
 
 
-  constructor(private db : AngularFireDatabase, private auth: AuthService, private router: Router) { }
+  constructor(private db : AngularFireDatabase, private auth: AuthService, private router: Router, private ds: DataService) { }
 
   ngOnInit() {
+
+
+    this.scheduledPickupList = this.ds.getScheduledPickups_observable();
+
     var body = document.getElementsByTagName('body')[0];
     body.classList.add('full-screen');
     body.classList.add('login');
@@ -39,6 +50,16 @@ export class AddpickupComponent implements OnInit {
     body.classList.remove('login');
     var navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.remove('navbar-transparent');
+  }
+
+  onParamsChange(){
+    if (this.selectedScheduledPickup){
+      this.newpickup.ScheduledPickupKey = this.selectedScheduledPickup.Key;
+    }
+    else{
+      this.newpickup.ScheduledPickupKey = null;
+    }
+    
   }
 
   onSubmit(FormData: NgForm) {

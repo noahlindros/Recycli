@@ -44,7 +44,7 @@
 
                 <div *ngFor="let pickup of pickupList" class="card">
                     <div class="card-header">
-                        Bokad upphämtning
+                        Bokad upphämtning - {{ getPickupName(pickup.ScheduledPickupKey) || async}}
 
                         <button type="button" ngbTooltip="Ta bort" class="pull-right btn btn-danger btn-link btn-sm" (click)="onRemovePickup(pickup)">
                             <i class="fa fa-times"></i>
@@ -78,6 +78,68 @@
                             {{pickup.PickupDay}}
                         </p>
 
+                        <button type="button" class="pull-right btn btn-success btn-just-icon btn-sm mr-1" (click)="onPerformedPickup(pickup)"><i class="fa fa-check"></i></button>
+
+                        
+                        
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="section section-recycli landing-section">
+
+
+
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Utförda upphämtningar</h2>
+                        <h5> </h5>
+                        <br />
+                    </div>
+                </div>
+  
+
+                <div *ngFor="let performedPickup of performedPickupList" class="card">
+                    <div class="card-header">
+                        Uförd upphämtning - {{performedPickup.PerformedTimestamp | date:'yyyy-MM-dd HH:mm:ss' }} av {{performedPickup.PerformedByWho}}
+                    </div>
+
+                    <div class="card-body card-presentation">
+                        <h5><strong>{{performedPickup.Name}}</strong></h5>
+                        <p class="text-style">
+                            {{performedPickup.Address1}}
+                        </p>
+
+                        <p class="text-style">
+                            {{performedPickup.Adress2}}
+                        </p>
+
+                        <p class="text-style">
+                            {{performedPickup.Zip}}
+                        </p>
+
+                        <p class="text-style">
+                            {{performedPickup.City}}
+                        </p>
+
+                        <p class="text-style">
+                            {{performedPickup.Phone}}
+                        </p>
+
+                        <p class="text-style">
+                            {{performedPickup.PickupDay}}
+                        </p>
+
+                        
+
+                        
+                        
                     </div>
 
                 </div>

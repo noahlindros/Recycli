@@ -30,7 +30,20 @@
                             <input id="Instruction" name="Instruction" type="Instruction" class="form-control no-border" placeholder="Instruktioner" [(ngModel)]="newpickup.Instruction">
 
 
-
+                            <div class="form-group">
+                                <label>När skall vi hämta upp?</label>
+    
+    
+    
+                                <ng-select name="selectScheduledPickup" [items]="scheduledPickupList | async" bindLabel="Name"
+                                    [addTag]="false" [multiple]="false" [hideSelected]="true" [loading]="scheduledPickupLoading"
+                                    loadingText='Loading...' (change)="onParamsChange()" [(ngModel)]="selectedScheduledPickup">
+    
+                                </ng-select>
+    
+    
+                            </div>
+    
 
                             <button type="submit" class="btn btn-recycli btn-block btn-round">Spara</button>
 

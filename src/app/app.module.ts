@@ -24,6 +24,7 @@ import { SignoutComponent } from './pages/signout/signout.component';
 import { PickupComponent } from './pages/pickup/pickup.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AddpickupComponent } from './pages/addpickup/addpickup.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
     declarations: [
@@ -60,7 +61,8 @@ import { AddpickupComponent } from './pages/addpickup/addpickup.component';
         ComponentsModule,
         ExamplesModule,
         AngularFireModule,
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        NgSelectModule
 
     ],
     providers: [],

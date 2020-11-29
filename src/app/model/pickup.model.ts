@@ -1,5 +1,8 @@
 export class Pickup
 {
+    constructor(){
+
+    }
     public Key : string;
     public Name : string = "";
     public Address1 : string = "";
@@ -8,5 +11,5 @@ export class Pickup
     public City : string = "";
     public Phone : string = "";
     public Instruction : string = "";
-    public PickupDay : string = "";
+    public ScheduledPickupKey : string = "";
 }
