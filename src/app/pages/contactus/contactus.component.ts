@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactusComponent implements OnInit {
 
+  data : Date = new Date();
+  
   constructor() { }
 
   ngOnInit(): void {

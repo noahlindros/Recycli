@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class DashboardComponent implements OnInit {
 
+  data : Date = new Date();
+  
   constructor() { }
   
   ngOnInit() {

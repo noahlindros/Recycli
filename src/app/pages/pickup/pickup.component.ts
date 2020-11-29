@@ -15,6 +15,7 @@ import { DataService } from 'app/services/data.service';
 })
 export class PickupComponent implements OnInit {
 
+  data : Date = new Date();
   pickupList: Pickup[]  = null;
   
   performedPickupList : PerformedPickup[]  = null;

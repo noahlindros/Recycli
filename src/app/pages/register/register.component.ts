@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   loginFailed: boolean = false;
   errorMessage: string = "";
 
-
+  data : Date = new Date();
   constructor(public auth: AuthService, public router: Router) {
 
   }
