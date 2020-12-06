@@ -9,10 +9,15 @@
                     <h1 class="title">RecycliUF</h1>
                     <h3 class="description">Hjälp oss förbättra miljön, ett steg i taget!</h3>
                     <h1> </h1>
-                    <div class="row">
+                    <div class="row" *ngIf="(pickupList) && (pickupList.length == 0)">
                         <div class="col-md-4 ml-auto mr-auto">
                             <button class="btn btn-recycli btn-block btn-round" (click)="onCreateNew()">Skapa
                                 upphämtning</button>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="(pickupList) && (pickupList.length > 0)">
+                        <div class="col-md-4 ml-auto mr-auto">
+                            <button class="btn btn-recycli btn-block btn-round" (click)="scroll(target)">Gå till din upphämtning</button>
                         </div>
                     </div>
                     
@@ -27,7 +32,7 @@
 
 
     <div class="wrapper">
-        <div class="section landing-section">
+        <div #target class="section landing-section">
 
 
 
@@ -35,7 +40,7 @@
 
                 <div class="row text-center">
                     <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="title">Upphämtningar</h2>
+                        <h2 class="title">Beställda upphämtningar</h2>
                         <h5> </h5>
                         <br />
                     </div>
@@ -87,9 +92,17 @@
                 </div>
 
 
+                <div class="row">
+                    <div class="col-md-4 ml-auto mr-auto">
+                        <button class="btn btn-recycli btn-block btn-round" (click)="onCreateNew()">Skapa ny
+                            upphämtning</button>
+                    </div>
+                </div>
+
             </div>
 
         </div>
+
         <div class="section section-recycli landing-section">
 
 
@@ -134,6 +147,65 @@
 
                         <p class="text-style">
                             {{performedPickup.PickupDay}}
+                        </p>
+
+                        
+
+                        
+                        
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="section section landing-section">
+
+
+
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Betalda upphämtningar</h2>
+                        <h5> </h5>
+                        <br />
+                    </div>
+                </div>
+  
+
+                <div *ngFor="let payedPickup of payedPickupList" class="card">
+                    <div class="card-header">
+                        Uförd upphämtning - {{payedPickup.PerformedTimestamp | date:'yyyy-MM-dd HH:mm:ss' }} av {{payedPickup.PerformedByWho}}
+                    </div>
+
+                    <div class="card-body card-presentation">
+                        <h5><strong>{{payedPickup.Name}}</strong></h5>
+                        <p class="text-style">
+                            {{payedPickup.Address1}}
+                        </p>
+
+                        <p class="text-style">
+                            {{payedPickup.Adress2}}
+                        </p>
+
+                        <p class="text-style">
+                            {{payedPickup.Zip}}
+                        </p>
+
+                        <p class="text-style">
+                            {{payedPickup.City}}
+                        </p>
+
+                        <p class="text-style">
+                            {{payedPickup.Phone}}
+                        </p>
+
+                        <p class="text-style">
+                            {{payedPickup.PickupDay}}
                         </p>
 
                         

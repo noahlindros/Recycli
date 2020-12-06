@@ -1,0 +1,84 @@
+<div class="wrapper">
+    <div class="page-header"
+        style="background-image: url('./assets/img/Recycli/avenue-2215317_1920.jpg');">
+        <div class="filter"></div>
+
+        <div class="content-center">
+            <div class="container">
+                <div class="motto">
+                    <h1 class="title">Kundlista</h1>
+                    <h3 class="description"></h3>
+                    <h1> </h1>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div #target class="section landing-section">
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Kundlista</h2>
+                        <h5> </h5>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div *ngFor="let customer of customerList" class="card col-md-6">
+                        <div class="card-header">
+                            {{customer.Name}}
+                        </div>
+    
+                        <div class="card-body card-presentation">
+    
+                            <div class="row">
+                                <div class="col">
+                                    Telefon
+                                </div>
+                                <div class="col">
+                                    {{customer.Phone}}
+                                </div>
+                            </div>                       
+                             <div class="row">
+                                <div class="col">
+                                    Email
+                                </div>
+                                <div class="col">
+                                    {{customer.Email}}
+                                </div>
+                            </div>
+    
+                            
+                        </div>
+    
+                    </div>
+    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer section-dark">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/home']">Recycli</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    &copy; {{data | date: 'yyyy'}},
+                    Recycli
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

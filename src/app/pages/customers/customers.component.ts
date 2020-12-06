@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'app/services/auth.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Customer } from 'app/model/customer.model';
 
 @Component({
-  selector: 'app-signout',
-  templateUrl: './signout.component.html',
-  styleUrls: ['./signout.component.css']
+  selector: 'app-customers',
+  templateUrl: './customers.component.html',
+  styleUrls: ['./customers.component.css']
 })
-export class SignoutComponent implements OnInit {
-
+export class CustomersComponent implements OnInit {
 
   data: Date = new Date();
+  customerList: Customer[] = null;
 
-  
-  
-  
+  constructor(private db: AngularFireDatabase) { }
 
+  ngOnInit(): void {
 
-
-  constructor(private auth: AuthService) { }
-
-  ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
     body.classList.add('full-screen');
     body.classList.add('login');
@@ -30,14 +26,10 @@ export class SignoutComponent implements OnInit {
     }
 
 
-    this.auth.isAuthenticated = false;
-    this.auth.isAdmin  = false;
-    this.auth.user = null;
-    this.auth.authChange.emit(false);
-    this.auth.adminChange.emit(false);
-    this.auth.angularFireAuth.auth.signOut();
-    
+    this.reloadData();
+
   }
+
   ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];
     body.classList.remove('full-screen');
@@ -46,5 +38,18 @@ export class SignoutComponent implements OnInit {
     navbar.classList.remove('navbar-transparent');
   }
 
+
+  reloadData() {
+
+    let subscription_customers = this.db.list<Customer>('data/customers/').valueChanges().subscribe((result) => {
+
+      console.log(result);
+      this.customerList = result;      
+      subscription_customers.unsubscribe();
+    });
+
+
+
+  }
 
 }

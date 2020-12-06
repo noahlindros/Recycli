@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthService } from 'app/services/auth.service';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
     selector: 'app-navbar',
@@ -11,16 +12,19 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     public isAuthenticated: boolean = false;
+    public isAdmin: boolean = false;
 
-    constructor(public auth: AuthService, public location: Location, private element: ElementRef) {
+    constructor(public auth: AuthService, public location: Location, private element: ElementRef, private db: AngularFireDatabase) {
         this.sidebarVisible = false;
 
 
 
         this.auth.authChange.subscribe((result) => {
-
             this.isAuthenticated = result;
-
+        });
+        this.auth.adminChange.subscribe((result) => {
+            console.log("adminChange", result);
+            this.isAdmin = result;
         });
     }
 
@@ -36,6 +40,19 @@ export class NavbarComponent implements OnInit {
                 this.auth.isAuthenticated = true;
                 this.auth.user = user;
                 this.auth.authChange.emit(true);
+                
+                let admin_check_subscription = this.db.object<boolean>('data/admin/' + this.auth.user.uid).valueChanges().subscribe((result) =>{
+                    if (result){
+                        this.auth.adminChange.emit(true);
+                        this.auth.isAdmin  = true;
+                    }
+                    else{
+                        this.auth.adminChange.emit(false);
+                        this.auth.isAdmin = false;
+                    }
+                    admin_check_subscription.unsubscribe();
+                });
+
             }
             else{
                 this.auth.isAuthenticated = false;

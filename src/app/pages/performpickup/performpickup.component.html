@@ -1,0 +1,159 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/Recycli/avenue-2215317_1920.jpg');">
+        <div class="filter"></div>
+
+        <div class="content-center">
+            <div class="container">
+                <div class="motto">
+                    <h1 class="title">Hämtlistor</h1>
+                    <h3 class="description"></h3>
+                    <h1> </h1>
+                    <div class="row">
+                        <div class="col-md-4 ml-auto mr-auto">
+                            <button class="btn btn-recycli btn-block btn-round" (click)="onCreateNewPickup()">Skapa ny
+                                hämtlista</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div class="section landing-section">
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Aktiva hämtlistor</h2>
+                        <h5> </h5>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div *ngFor="let tour of pickupTour" class="card" (click)="onClickPickupTour(tour)">
+                            <div class="card-header">
+                                {{tour.Name}}
+                            </div>
+
+                            <div class="card-body card-presentation">
+
+                                <div class="row">
+                                    <div class="col">
+                                        Datum
+                                    </div>
+                                    <div class="col">
+                                        {{tour.PlannedDate  | date:'yyyy-MM-dd'}}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        Antal hämtningar kvar
+                                    </div>
+                                    <div class="col">
+                                        {{tour?.PlannedPickups?.length}}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        Antal utförda hämtningar
+                                    </div>
+                                    <div class="col">
+                                        {{tour?.PerformedPickups?.length}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="section section-recycli landing-section">
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Slutförda hämtlistor</h2>
+                        <h5> </h5>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div *ngFor="let tour of performedPickupTour" class="card" (click)="onClickPickupTour(tour)">
+                            <div class="card-header">
+                                {{tour.Name}}
+                            </div>
+
+                            <div class="card-body card-presentation">
+
+                                <div class="row">
+                                    <div class="col">
+                                        Datum
+                                    </div>
+                                    <div class="col">
+                                        {{tour.PlannedDate  | date:'yyyy-MM-dd'}}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        Antal hämtningar kvar
+                                    </div>
+                                    <div class="col">
+                                        {{tour?.PlannedPickups?.length}}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        Antal utförda hämtningar
+                                    </div>
+                                    <div class="col">
+                                        {{tour?.PerformedPickups?.length}}
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer section-dark">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/home']">Recycli</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    &copy; {{data | date: 'yyyy'}},
+                    Recycli
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

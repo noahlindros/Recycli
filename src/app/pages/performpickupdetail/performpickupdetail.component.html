@@ -1,0 +1,107 @@
+<div class="wrapper">
+    <div class="page-header page-header-xxs"
+        style="background-image: url('./assets/img/Recycli/avenue-2215317_1920.jpg');">
+        <div class="filter"></div>
+
+        <div class="content-center">
+            <br>
+            <h3 class="title">Hämtlista</h3>
+        </div>
+    </div>
+
+
+    <div *ngIf="pickupTour" class="container col-md-6">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        {{pickupTour.Name}}
+                    </div>
+
+                    <div class="card-body card-presentation">
+
+                        <div class="row">
+                            <div class="col">
+                                Datum
+                            </div>
+                            <div class="col">
+                                {{pickupTour.PlannedDate  | date:'yyyy-MM-dd'}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                Antal hämtningar kvar
+                            </div>
+                            <div class="col">
+                                {{pickupTour?.PlannedPickups?.length}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                Antal utförda hämtningar
+                            </div>
+                            <div class="col">
+                                {{pickupTour?.PerformedPickups?.length}}
+                            </div>
+                        </div>
+
+
+                        <button type="button" class="pull-right btn btn-success btn-just-icon btn-sm mr-1"
+                        (click)="onCloseTour()"><i class="fa fa-check"></i></button>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngFor="let pickup of pickupTour.PlannedPickups">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header">
+                        Bokad upphämtning
+
+                    </div>
+
+                    <div class="card-body card-presentation">
+                        <h5><strong>{{pickup.Name}}</strong></h5>
+                        <p class="text-style">
+                            {{pickup.Address1}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.Adress2}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.Zip}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.City}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.Phone}}
+                        </p>
+
+                        <p class="text-style">
+                            {{pickup.PickupDay}}
+                        </p>
+
+                        <button type="button" class="pull-right btn btn-success btn-just-icon btn-sm mr-1"
+                            (click)="onPerformedPickup(pickup)"><i class="fa fa-check"></i></button>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

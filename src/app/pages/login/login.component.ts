@@ -60,9 +60,10 @@ export class LoginComponent implements OnInit {
         this.loginFailed = true;
         
         this.auth.isAuthenticated = false;
+        this.auth.isAdmin  = false;
         this.auth.user = null;
         this.auth.authChange.emit(false);
-  
+        this.auth.adminChange.emit(false);
       });
   }
 

@@ -7,6 +7,8 @@ export class PerformedPickup extends Pickup
         super();
 
         this.Key = aBookedPickup.Key;
+        this.CustomerKey = aBookedPickup.CustomerKey;
+        this.PickupKey = aBookedPickup.PickupKey;
         this.Address1 = aBookedPickup.Address1;
         this.Address2 = aBookedPickup.Address2;
         this.City = aBookedPickup.City;
@@ -20,5 +22,6 @@ export class PerformedPickup extends Pickup
     public PerformedTimestamp : Number;
     public PerformedByWho : string;
     public PaymentReceived: boolean;
+    public PaymentTimestamp : Number;
     public PaymentKey: Number;
 }

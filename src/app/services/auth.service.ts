@@ -8,9 +8,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
 
   authChange: EventEmitter<boolean> = new EventEmitter();
+  adminChange: EventEmitter<boolean> = new EventEmitter();
 
-  private static LOCAL_STORAGE_USERNAME = "LOCAL_STORAGE_DEECIDO_USERNAME";
+  private static LOCAL_STORAGE_USERNAME = "LOCAL_STORAGE_RECYCLI_USERNAME";
   public isAuthenticated: boolean = false;
+  public isAdmin: boolean = false;
   
   public user: firebase.User;
 

@@ -79,6 +79,8 @@ export class AddpickupComponent implements OnInit {
       console.log(pushref);
 
       this.newpickup.Key = pushref.key;
+      this.newpickup.CustomerKey = this.auth.user.uid;
+      this.newpickup.PickupKey = pushref.key;
 
       pushref.set(this.newpickup)
       .then((saveref) =>{

@@ -44,6 +44,8 @@
                             <form [formGroup]="signupForm" (ngSubmit)="onReactiveFormSubmit()">
 
                                 <input formControlName="email" id="email" name="email" type="email" class="form-control" placeholder="Email">
+                                <input formControlName="name" id="name" name="name" type="text" class="form-control" placeholder="Namn">
+                                <input formControlName="phone" id="phone" name="phone" type="text" class="form-control" placeholder="Telefon">
                                 <input formControlName="password" id="password" name="password" type="password" class="form-control" placeholder="Lösenord">
                                 <input formControlName="confirm" id="confirm" name="confirm" type="password" class="form-control" placeholder="Bekräfta lösenord">
 

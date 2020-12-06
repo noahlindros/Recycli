@@ -25,6 +25,10 @@ import { PickupComponent } from './pages/pickup/pickup.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AddpickupComponent } from './pages/addpickup/addpickup.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CustomersComponent } from './pages/customers/customers.component';
+import { PaymentsComponent } from './pages/payments/payments.component';
+import { PerformpickupComponent } from './pages/performpickup/performpickup.component';
+import { PerformpickupdetailComponent } from './pages/performpickupdetail/performpickupdetail.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +40,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
         AboutComponent,
         LoginComponent,
         ContactusComponent,        
-        SignoutComponent, PickupComponent, AddpickupComponent
+        SignoutComponent, PickupComponent, AddpickupComponent, CustomersComponent, PaymentsComponent, PerformpickupComponent, PerformpickupdetailComponent
     ],
     imports: [
         AngularFireModule.initializeApp({

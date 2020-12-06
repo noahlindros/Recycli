@@ -4,7 +4,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand" [routerLink]="['/home']">Recycli</a>
             </div>
-            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
+                data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
@@ -25,8 +27,22 @@
                     <li *ngIf="isAuthenticated" class="nav-item">
                         <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
                     </li>
+                    <div *ngIf="isAdmin" ngbDropdown class="nav-item dropdown">
+                        <div class="nav-link dropdown-toggle" ngbDropdownToggle>Admin</div>
+                        <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-danger">
+                            <a class="dropdown-item" [routerLink]="['/customers']" ><i
+                                    class="nc-icon nc-badge"></i>&nbsp; Kunder</a>
+                            <a class="dropdown-item" [routerLink]="['/performpickup']" ><i
+                                    class="nc-icon nc-bullet-list-67"></i>&nbsp; Hämtlistor</a>
+                            <a class="dropdown-item" [routerLink]="['/payments']" ><i
+                                    class="nc-icon nc-money-coins"></i>&nbsp; Inbetalningar</a>
+                        </div>
+                    </div>
                 </ul>
 
+
+                <!--
+                
                 <div ngbDropdown class="nav-item dropdown">
                     <div class="nav-link dropdown-toggle" ngbDropdownToggle>Components</div>
                     <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-danger">
@@ -68,6 +84,7 @@
                         <a class="dropdown-item" [routerLink]="['/examples/twitter']"><i class="nc-icon nc-tie-bow"></i>&nbsp; Twitter</a>
                     </div>
                 </div>
+                -->
                 <li *ngIf="!isAuthenticated" class="nav-item">
                     <a class="btn btn-round btn-recycli" [routerLink]="['/login']">
                         <i class="nc-icon nc-lock-circle-open"></i> Logga in

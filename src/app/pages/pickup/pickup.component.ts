@@ -15,16 +15,16 @@ import { DataService } from 'app/services/data.service';
 })
 export class PickupComponent implements OnInit {
 
-  data : Date = new Date();
-  pickupList: Pickup[]  = null;
-  
-  performedPickupList : PerformedPickup[]  = null;
+  data: Date = new Date();
+  pickupList: Pickup[] = null;
 
+  performedPickupList: PerformedPickup[] = null;
+  payedPickupList: PerformedPickup[] = null;
   scheduledPickups: ScheduledPickup[];
   scheduledPickupsDictionary = new Map<string, ScheduledPickup>();
 
   isCreatingPickup: boolean = false;
-  constructor(private db : AngularFireDatabase, private auth: AuthService, private router: Router, private ds: DataService) { }
+  constructor(private db: AngularFireDatabase, private auth: AuthService, private router: Router, private ds: DataService) { }
 
   ngOnInit() {
     var body = document.getElementsByTagName('body')[0];
@@ -36,7 +36,7 @@ export class PickupComponent implements OnInit {
       navbar.classList.remove('nav-up');
     }
 
-    this.ds.getScheduledPickups_observable().subscribe(result =>{
+    this.ds.getScheduledPickups_observable().subscribe(result => {
       this.scheduledPickups = result;
 
       this.scheduledPickups.forEach(element => {
@@ -46,8 +46,8 @@ export class PickupComponent implements OnInit {
       this.reloadData();
     });
 
-    
-    
+
+
   }
   ngOnDestroy() {
     var body = document.getElementsByTagName('body')[0];
@@ -57,7 +57,7 @@ export class PickupComponent implements OnInit {
     navbar.classList.remove('navbar-transparent');
   }
 
-  getPickupName(pickupKey : string){
+  getPickupName(pickupKey: string) {
 
     let scheduledPickup = this.scheduledPickupsDictionary.get(pickupKey);
 
@@ -67,45 +67,50 @@ export class PickupComponent implements OnInit {
     return pickupKey;
   }
 
-  onPerformedPickup(aBookedPickup: Pickup){
+  scroll(el: HTMLElement) {
+    el.scrollIntoView({behavior:"smooth"});
+  }
+
+  onPerformedPickup(aBookedPickup: Pickup) {
 
 
-    
+
     this.db.database.ref('performedpickups/' + this.auth.user.uid).push()
-    .then((pushref) =>{
+      .then((pushref) => {
 
 
-      let aPerformedPickup = new PerformedPickup(aBookedPickup);
-      aPerformedPickup.PerformedByWho = "Noah Lindros";
-      aPerformedPickup.PerformedTimestamp = new Date().getTime();
-      aPerformedPickup.PaymentKey = new Date().getTime();
-      aPerformedPickup.PaymentReceived = false;
+        let aPerformedPickup = new PerformedPickup(aBookedPickup);
+        aPerformedPickup.PerformedByWho = "Noah Lindros";
+        aPerformedPickup.PerformedTimestamp = new Date().getTime();
+        aPerformedPickup.PaymentKey = new Date().getTime();
+        aPerformedPickup.PaymentReceived = false;
+        aPerformedPickup.Key = pushref.key;
 
-      pushref.set(aPerformedPickup)
-      .then((saveref) =>{
-        this.reloadData();
+        pushref.set(aPerformedPickup)
+          .then((saveref) => {
+            this.reloadData();
+          })
+          .catch((error) => {
+
+          });
+
+
+
+
       })
-      .catch((error) =>{
-  
+      .catch((error) => {
+
       });
-      
-
-
-      
-    })
-    .catch((error) =>{
-
-    });
 
 
   }
 
-  reloadData(){
+  reloadData() {
 
     let subscription_scheduled = this.db.list<Pickup>('pickups/' + this.auth.user.uid).valueChanges().subscribe((result) => {
 
       console.log(result);
-      this.pickupList = result;
+      this.pickupList = result;      
       subscription_scheduled.unsubscribe();
     });
 
@@ -116,24 +121,30 @@ export class PickupComponent implements OnInit {
       subscription_performed.unsubscribe();
     });
 
+    let subscription_payed = this.db.list<PerformedPickup>('payedpickups/' + this.auth.user.uid).valueChanges().subscribe((result) => {
+
+      console.log(result);
+      this.payedPickupList = result;
+      subscription_payed.unsubscribe();
+    });
 
   }
-  onRemovePickup(aPickup : Pickup){
+  onRemovePickup(aPickup: Pickup) {
     console.log(aPickup);
     this.db.object('pickups/' + this.auth.user.uid + "/" + aPickup.Key).remove()
-    .then(result =>{
-      this.reloadData();
-    })
-    .catch(error => {
+      .then(result => {
+        this.reloadData();
+      })
+      .catch(error => {
 
-    });
+      });
   }
 
-  onCreateNew(){
+  onCreateNew() {
 
     this.router.navigate(['/addpickup']);
 
-    
+
   }
 
 }

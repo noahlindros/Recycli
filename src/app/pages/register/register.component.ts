@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 //import { AngularFireAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Customer } from 'app/model/customer.model';
 import { AuthService } from 'app/services/auth.service';
 //import firebase from 'firebase/app';
 
@@ -16,12 +18,14 @@ export class RegisterComponent implements OnInit {
   errorMessage: string = "";
 
   data : Date = new Date();
-  constructor(public auth: AuthService, public router: Router) {
+  constructor(public auth: AuthService, public router: Router, private db: AngularFireDatabase) {
 
   }
 
   signupForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),    
+    phone: new FormControl('', [Validators.required]),    
+    name: new FormControl('', [Validators.required]),    
     password: new FormControl('', [Validators.required,
     Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=.*[$@$!%*?&])(?=[^A-Z]*[A-Z]).{8,30}$/)
     ]),
@@ -59,6 +63,16 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    if (!this.signupForm.value.phone) {
+      this.loginFailed = true;
+      this.errorMessage = "You must provide a valid phone";
+      return;
+    }
+    if (!this.signupForm.value.name) {
+      this.loginFailed = true;
+      this.errorMessage = "You must provide a valid name";
+      return;
+    }
 
 
     if (!this.signupForm.value.password) {
@@ -89,12 +103,28 @@ export class RegisterComponent implements OnInit {
       this.loginFailed = false;
       this.errorMessage = null;
 
-      
-      this.auth.user = user.user;
-      this.auth.isAuthenticated = true;
-      this.auth.authChange.emit(true);
-      this.router.navigate(['/dashboard']);
-      
+
+      let aCustomer = new Customer();
+      aCustomer.Email = this.signupForm.value.email;
+      aCustomer.Name = this.signupForm.value.name;
+      aCustomer.Key = user.user.uid;
+      aCustomer.Phone = this.signupForm.value.phone;
+
+      this.db.database.ref('data/customers/' + user.user.uid).set(aCustomer)
+      .then((setref) =>{
+
+        this.auth.user = user.user;
+        this.auth.isAuthenticated = true;
+        this.auth.authChange.emit(true);
+        this.router.navigate(['/dashboard']);
+
+
+
+      })
+      .catch((error) =>{
+  
+      });
+
     })
     .catch((error) => {
       console.log(error);

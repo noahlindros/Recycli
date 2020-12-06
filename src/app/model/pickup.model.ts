@@ -4,6 +4,8 @@ export class Pickup
 
     }
     public Key : string;
+    public CustomerKey: string;
+    public PickupKey: string;
     public Name : string = "";
     public Address1 : string = "";
     public Address2 : string = "";

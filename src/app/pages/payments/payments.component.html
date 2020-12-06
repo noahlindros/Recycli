@@ -1,0 +1,95 @@
+<div class="wrapper">
+    <div class="page-header"
+        style="background-image: url('./assets/img/Recycli/avenue-2215317_1920.jpg');">
+        <div class="filter"></div>
+
+        <div class="content-center">
+            <div class="container">
+                <div class="motto">
+                    <h1 class="title">Inbetalningar</h1>
+                    <h3 class="description"></h3>
+                    <h1> </h1>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div #target class="section landing-section">
+            <div class="container col-md-6">
+
+                <div class="row text-center">
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <h2 class="title">Ej betalda hämtningar</h2>
+                        <h5> </h5>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div *ngFor="let performedPickup of performedPickups" class="card col-md-6">
+                        <div class="card-header">
+                            Uförd upphämtning - {{performedPickup.PerformedTimestamp | date:'yyyy-MM-dd HH:mm:ss' }} av {{performedPickup.PerformedByWho}}
+                        </div>
+    
+                        <div class="card-body card-presentation">
+                            <h5><strong>{{performedPickup.Name}}</strong></h5>
+                            <p class="text-style">
+                                {{performedPickup.Address1}}
+                            </p>
+    
+                            <p class="text-style">
+                                {{performedPickup.Adress2}}
+                            </p>
+    
+                            <p class="text-style">
+                                {{performedPickup.Zip}}
+                            </p>
+    
+                            <p class="text-style">
+                                {{performedPickup.City}}
+                            </p>
+    
+                            <p class="text-style">
+                                {{performedPickup.Phone}}
+                            </p>
+    
+                            <p class="text-style">
+                                {{performedPickup.PickupDay}}
+                            </p>
+    
+                            
+                            <button type="button" class="pull-right btn btn-success btn-just-icon btn-sm mr-1" (click)="onPerformPayment(performedPickup)"><i class="fa fa-check"></i></button>
+
+                            
+                            
+                        </div>
+    
+                    </div>
+        
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer section-dark">
+    <div class="container">
+        <div class="row">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a [routerLink]="['/home']">Recycli</a></li>
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    &copy; {{data | date: 'yyyy'}},
+                    Recycli
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
