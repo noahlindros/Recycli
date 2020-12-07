@@ -58,9 +58,15 @@
     border-top-color: #FFFFFF;
   }
 
-
-
+.card-image .card {
+  background-size: cover;
+  min-height: 430px;
+  width: 100%;
+}
   
+.text-recycli, .text-recycli:hover {
+    color: #b1c636 !important;
+  }
 
   .icon-recycli {
     color: #b1c636;

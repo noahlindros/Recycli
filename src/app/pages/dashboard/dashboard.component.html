@@ -7,6 +7,12 @@
                     <h1 class="title">Dashboard</h1>
                     <h3 class="description">Kolla dina aktiva bokningar samt om dina bokningar är betalda</h3>
                     <br />
+                    <div class="row" *ngIf="(pickupList) && (pickupList.length == 0)">
+                        <div class="col-md-4 ml-auto mr-auto">
+                            <button class="btn btn-recycli btn-block btn-round" (click)="onCreateNew()">Skapa
+                                upphämtning</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,8 +128,8 @@
                         <div class="card-body">
                             <div class="author">
                                 <a href="javascript:void(0)">
-                                   <img src="assets/img/faces/erik-lucatero-2.jpg" alt="..." class="avatar img-raised">
-                                   <span>Erik Johnson</span>
+                                   <img src="assets/img/Recycli/logotyp-apple-icon.png" alt="..." class="avatar img-raised">
+                                   <span>Recycli</span>
                                 </a>
                             </div>
                             <span class="category-social pull-right">
@@ -131,7 +137,7 @@
                             </span>
                             <div class="clearfix"></div>
                             <p class="card-description">
-                                "Less, but better – because it concentrates on the essential aspects, and the products are not burdened with non-essentials. Back to purity, back to simplicity. At best, it is self-explanatory."
+                                "Vi kan inte göra detta individuellt. Vi behöver jobba tillsammans för att nå mot ett gemensamt mål som gynnar oss alla. Att återvinna är ett bra steg i rätt riktning för att rädda vår planet!"
                             </p>
                         </div>
                     </div>
@@ -139,18 +145,18 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <span class="category-social text-info pull-right">
-                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-facebook"></i>
                             </span>
                             <div class="clearfix"></div>
                             <div class="author">
                                 <a href="javascript:void(0)">
-                                   <img src="assets/img/faces/kaci-baum-2.jpg" alt="..." class="avatar-big img-raised border-gray">
+                                   <img src="assets/img/Recycli/logotyp-apple-icon.png" alt="..." class="avatar-big img-raised border-gray">
                                 </a>
-                                <h5 class="card-title">Kaci Baum</h5>
-                                <p class="category"><a href="javascript:void(0)" class="text-danger">@kacibaum</a></p>
+                                <h5 class="card-title">Recycli</h5>
+                                <p class="category"><a href="https://www.facebook.com/Recycliuf" class="text-danger">@Recycliuf</a></p>
                             </div>
                             <p class="card-description">
-                                "Less, but better – because it concentrates on the essential aspects, and the products are not burdened with non-essentials."
+                                Följ oss på facebook för att få tillgång till nyheter angående vår verksamhet. Du kan även ta del av olika erbjudande som vid vissa tillfälle kommer finnas tillgängliga
                             </p>
                         </div>
                     </div>
@@ -158,20 +164,20 @@
                     <div class="card">
                         <div class="card-image">
                             <a href="javascript:void(0)">
-                                <img class="img" src="assets/img/sections/david-marcu.jpg">
+                                <img class="img" src="assets/img/Recycli/alternative-energy-1042411_1920.jpg">
                             </a>
                         </div>
                         <div class="card-body">
-                            <label class="label label-warning">Travel</label>
+                            <label class="label label-warning">Hållbar framtid?</label>
                             <h5 class="card-title">
-                                Currently at the San Francisco Museum of Modern Art
+                                En hållbar framtid är en bra framtid
                             </h5>
                             <hr />
                             <div class="card-footer">
                                 <div class="author">
                                     <a href="javascript:void(0)">
-                                       <img src="assets/img/rihanna.jpg" alt="..." class="avatar img-raised">
-                                       <span>Lord Alex</span>
+                                       <img src="assets/img/Recycli/logotyp-apple-icon.png" alt="..." class="avatar img-raised">
+                                       <span>Recycli</span>
                                     </a>
                                 </div>
                                <div class="stats">

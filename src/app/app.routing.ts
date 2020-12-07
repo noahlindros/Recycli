@@ -39,10 +39,12 @@ import { CustomersComponent } from './pages/customers/customers.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { PerformpickupComponent } from './pages/performpickup/performpickup.component';
 import { PerformpickupdetailComponent } from './pages/performpickupdetail/performpickupdetail.component';
+import { PricesComponent } from './pages/prices/prices.component';
 
 
 const routes: Routes =[
 
+    { path: 'prices',           component: PricesComponent },
     { path: 'home',             component: HomeComponent },
     { path: 'register',         component: RegisterComponent },
     { path: 'about',            component: AboutComponent },

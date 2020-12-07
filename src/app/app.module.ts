@@ -29,6 +29,7 @@ import { CustomersComponent } from './pages/customers/customers.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { PerformpickupComponent } from './pages/performpickup/performpickup.component';
 import { PerformpickupdetailComponent } from './pages/performpickupdetail/performpickupdetail.component';
+import { PricesComponent } from './pages/prices/prices.component';
 
 @NgModule({
     declarations: [
@@ -40,7 +41,7 @@ import { PerformpickupdetailComponent } from './pages/performpickupdetail/perfor
         AboutComponent,
         LoginComponent,
         ContactusComponent,        
-        SignoutComponent, PickupComponent, AddpickupComponent, CustomersComponent, PaymentsComponent, PerformpickupComponent, PerformpickupdetailComponent
+        SignoutComponent, PickupComponent, AddpickupComponent, CustomersComponent, PaymentsComponent, PerformpickupComponent, PerformpickupdetailComponent, PricesComponent
     ],
     imports: [
         AngularFireModule.initializeApp({

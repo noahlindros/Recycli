@@ -1,0 +1,112 @@
+
+    <!-- End Navbar -->
+    <div class="page-header" data-parallax="true" style="background-image: url('./assets/img/Recycli/bottles-57139_1920.jpg');">
+        <div class="filter"></div>
+        <div class="content-center">
+            <div class="container">
+                <div class="motto">
+                    <h1 class="title">Priser</h1>
+                    <h3 class="description">Här kan du se priserna på de tjänster vi erbjuder idag</h3>
+					<h3 class="description">Vi hjälper dig gärna!</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="section latest-offers">
+              <div class="container">
+                  <div class="row">
+                       <div class="col-md-6">
+                           <div class="card card-product card-plain">
+                               <div class="card-image">
+                                   <a href="javascript:void(0)">
+                                       <img src="./assets/img/Recycli/forest-5245917_1920.jpg" alt="Rounded Image" class="img-rounded img-responsive">
+                                   </a>
+                                   <div class="card-body">
+                                       <div class="card-description">
+                                           <h5 class="card-title">Upphämtning Lördag udda veckor</h5>
+                                           <p class="card-description">This is a limited edition dress for the fall collection. Comes in 3 colours.</p>
+                                       </div>
+                                       <div class="price">
+                                            <span class="text-recycli"> 299 kr</span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                       <div class="col-md-6">
+                           <div class="card card-product card-plain">
+                               <div class="card-image">
+                                   <a href="javascript:void(0)">
+                                       <img src="./assets/img/Recycli/italy-4961709_1920.jpg" alt="Rounded Image" class="img-rounded img-responsive">
+                                   </a>
+                                   <div class="card-body">
+                                       <div class="card-description">
+                                           <h5 class="card-title">Upphämtning Lördag varje vecka</h5>
+                                           <p class="card-description">This is a limited edition dress for the fall collection. Comes in 3 colours.</p>
+                                       </div>
+                                       <div class="price">
+                                            <span class="text-recycli"> 399 sek </span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                  </div>
+              </div>
+        <div class="wrapper">
+        <div class="section section-recycli text-center landing-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 ml-auto mr-auto">
+                        <h2 class="title">Är du redo att boka?</h2>
+                        <h5 class="title">Klicka på knappen nedan för att komma till inloggningen så att du kan boka!</h5>
+                        <a class="btn btn-round btn-white" [routerLink]="['/login']">
+                            <i class="nc-icon nc-money-coins"></i> boka
+                        </a>
+                        <br />   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section text-center landing-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="row">
+                            <div class="col-md-6 ml-auto mr-auto text-center">
+                                <h3 class="title"><small>Hitta oss på sociala nätverk</small></h3>
+                                <button class="btn btn-just-icon btn-facebook mr-1">
+                                    <i class="fa fa-facebook"></i>
+                                </button>
+                                <button class="btn btn-just-icon btn-instagram mr-1">
+                                    <i class="fa fa-instagram"></i>
+                                    
+                                </button>
+                            </div>
+                        </div>
+                        
+                            <br />    
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer section-dark">
+            <div class="container">
+                <div class="row">
+                    <nav class="footer-nav">
+                        <ul>
+                            <li><a [routerLink]="['/home']">Recycli</a></li>
+                        </ul>
+                    </nav>
+                    <div class="credits ml-auto">
+                        <span class="copyright">
+                            &copy; {{data | date: 'yyyy'}},
+                            Recycli 
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
