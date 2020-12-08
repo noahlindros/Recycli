@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/prices']">Priser</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/howto']">FAQ</a>
+                    </li>
                     <li *ngIf="isAuthenticated" class="nav-item">
                         <a class="nav-link" [routerLink]="['/pickup']">Upphämtning</a>
                     </li>
@@ -44,8 +47,8 @@
                 </ul>
 
 
-                <!--
                 
+                <!--
                 <div ngbDropdown class="nav-item dropdown">
                     <div class="nav-link dropdown-toggle" ngbDropdownToggle>Components</div>
                     <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-danger">
@@ -87,7 +90,8 @@
                         <a class="dropdown-item" [routerLink]="['/examples/twitter']"><i class="nc-icon nc-tie-bow"></i>&nbsp; Twitter</a>
                     </div>
                 </div>
-                -->
+            -->
+            
                 <li *ngIf="!isAuthenticated" class="nav-item">
                     <a class="btn btn-round btn-recycli" [routerLink]="['/login']">
                         <i class="nc-icon nc-lock-circle-open"></i> Logga in
