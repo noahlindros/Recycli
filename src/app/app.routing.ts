@@ -41,6 +41,7 @@ import { PerformpickupComponent } from './pages/performpickup/performpickup.comp
 import { PerformpickupdetailComponent } from './pages/performpickupdetail/performpickupdetail.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { HowtoComponent } from './pages/howto/howto.component';
+import { PickuplistComponent } from './pages/pickuplist/pickuplist.component';
 
 
 const routes: Routes =[
@@ -55,6 +56,7 @@ const routes: Routes =[
     { path: 'pickup',           component: PickupComponent, canActivate: [AuthGuard], data: {admin: false} },
 
     { path: 'customers',            component: CustomersComponent, canActivate: [AuthGuard], data: {admin: true} },
+    { path: 'pickuplist',           component: PickuplistComponent, canActivate: [AuthGuard], data: {admin: true} },
     { path: 'payments',             component: PaymentsComponent, canActivate: [AuthGuard], data: {admin: true} },
     { path: 'performpickup',        component: PerformpickupComponent, canActivate: [AuthGuard], data: {admin: true} },
     { path: 'performpickup/:key',   component: PerformpickupdetailComponent, canActivate: [AuthGuard], data: {admin: true} },

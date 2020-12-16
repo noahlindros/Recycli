@@ -36,18 +36,20 @@
                     <div *ngIf="isAdmin" ngbDropdown class="nav-item dropdown">
                         <div class="nav-link dropdown-toggle" ngbDropdownToggle>Admin</div>
                         <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right dropdown-danger">
-                            <a class="dropdown-item" [routerLink]="['/customers']" ><i
+                            <a class="dropdown-item" [routerLink]="['/customers']"><i
                                     class="nc-icon nc-badge"></i>&nbsp; Kunder</a>
-                            <a class="dropdown-item" [routerLink]="['/performpickup']" ><i
+                            <a class="dropdown-item" [routerLink]="['/pickuplist']"><i
+                                    class="nc-icon nc-bullet-list-67"></i>&nbsp; Beställda upphämtningar</a>
+                            <a class="dropdown-item" [routerLink]="['/performpickup']"><i
                                     class="nc-icon nc-bullet-list-67"></i>&nbsp; Hämtlistor</a>
-                            <a class="dropdown-item" [routerLink]="['/payments']" ><i
+                            <a class="dropdown-item" [routerLink]="['/payments']"><i
                                     class="nc-icon nc-money-coins"></i>&nbsp; Inbetalningar</a>
                         </div>
                     </div>
                 </ul>
 
 
-                
+
                 <!--
                 <div ngbDropdown class="nav-item dropdown">
                     <div class="nav-link dropdown-toggle" ngbDropdownToggle>Components</div>
@@ -91,7 +93,7 @@
                     </div>
                 </div>
             -->
-            
+
                 <li *ngIf="!isAuthenticated" class="nav-item">
                     <a class="btn btn-round btn-recycli" [routerLink]="['/login']">
                         <i class="nc-icon nc-lock-circle-open"></i> Logga in

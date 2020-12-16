@@ -31,6 +31,7 @@ import { PerformpickupComponent } from './pages/performpickup/performpickup.comp
 import { PerformpickupdetailComponent } from './pages/performpickupdetail/performpickupdetail.component';
 import { PricesComponent } from './pages/prices/prices.component';
 import { HowtoComponent } from './pages/howto/howto.component';
+import { PickuplistComponent } from './pages/pickuplist/pickuplist.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +51,7 @@ import { HowtoComponent } from './pages/howto/howto.component';
         PerformpickupComponent, 
         PerformpickupdetailComponent, 
         PricesComponent, 
-        HowtoComponent
+        HowtoComponent, PickuplistComponent
     ],
     imports: [
         AngularFireModule.initializeApp({
